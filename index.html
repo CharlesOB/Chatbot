@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Our Chatbot</title>
+    <style>
+      a { color:#FFFFFF; }
+      p { color:#FFFFFF; }
+      h1 { color:#FFFFFF; }
+      h2 { color:#EEEEEE; }
+      h3 { color:#DDDDDD; }
+      h4 { color:#CCCCCC; }
+      h5 { color:#BBBBBB; }
+      h6 { color:#AAAAAA; }
+      table.sidebar {
+        border:2px solid black;
+        background-color:#000000;
+        width:150px;
+        height:500px;
+      }
+      td.sidebar {
+        text-align:center;
+        border:3px outset #9999FF;
+        background-color:#000000;
+        color:#FFFFFF;
+        height:auto;
+      }
+    </style>
+    <script src="/custom.js"></script>
+    <script src="/words_of_the_day.js"></script>
+    <script>
+      var numReferences = 0;
+      addLoadEvent(function() {
+        document.getElementById("word").innerHTML = wordOfTheDay;
+        document.getElementById("numReferences").innerHTML = todayReferences.toString();
+        function changeElement(times) {
+          if (times > 0) {
+            document.getElementById("percent").innerHTML = (100 * todayReferences / times).toFixed(1);
+            document.getElementById("allReferences").innerHTML = times.toString();
+          }
+        }
+        addAllWordOfTheDayReferences(wordOfTheDay, 0, changeElement);
+      });
+    </script>
+  </head>
+  <body bgcolor="#000000">
+    <div align="center">
+      <div align="center">
+        <!put an image here later>
+        <h1>Our Chatbot</h1>
+        <h3>Topic of the Day</h3>
+        <h2 id="word"></h2>
+        <p>Your references: <b id="numReferences">0</b> (<b id="percent">0</b>% of total)</p>
+        <p>Total references: <b id="allReferences">0</b></p>
+      </div>
+      <div align="left" style="width:800px;padding-left:5px;padding-right:5px">
+        <div style="float:left;background-color:#FFFFFF;padding-left:5px;padding-right:5px;width:150px;height:500px">
+          <table class='sidebar'>
+            <tr><td class='sidebar'><a href="/index.html">Home</a></td></tr>
+            <tr><td class='sidebar'><a href="/about.html">About</a></td></tr>
+            <tr><td class='sidebar'><a href="/speak.html">Let's Chat!</a></td></tr>
+          </table>
+        </div>
+        <div style="float:right;width:620px;padding-left:5px;padding-right:5px;">
+
+
+          <h2>Welcome to Our Chatbot!</h2>
+          <p>Welcome to Our Chatbot, your best friend (or maybe not, <a href="/speak.html">find out!</a>) on the web.</p>
+          <p>Please be aware that all content of this bot is saved and recorded. Please be responsible in your word and content choices.</p>
+          <p>Thank you for entertaining yourself!</p>
+          <br>
+          <p><a href="/speak.html">Let's Chat!</a></p>
+          <br>
+          <p>Would you like to view the database? <a href="/data.txt" target="_blank">Click Here!</a></p>
+
+        </div>
+        <div align='center' style='float:right;width:795px;border:3px outset #FF9900;background-color:#000000'>
+          <br><p>
+            For questions, comments, or suggestions, contact me at <a href='mailto:charlesw@owenblock.com'>charlesw@owenblock.com</a>.
+          </p><br>
+        </div><br><br>
+      </div>
+    </div>
+  </body>
+</html>

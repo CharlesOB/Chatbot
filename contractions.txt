@@ -1,0 +1,116 @@
+---
+arent: are not
+bout: about
+cant: can not
+couldve: could have
+couldnt: could not
+couldntve: could not have
+didnt: did not
+doesnt: does not
+dont: do not
+gonna: going to
+hadnt: had not
+hadntve: had not have
+hasnt: has not
+havent: have not
+hed: he would
+hedve: he would have
+hes: he is
+hesnt: he is not
+howd: how did
+howll: how will
+hows: how is
+id: i would
+idve: i would have
+im: i am
+ive: i have
+ivent: i have not
+isnt: is not
+itsnt: it is not
+lets: let us
+maam: madam
+mightnt: might not
+mightntve: might not have
+mightve: might have
+mustnt: must not
+mustve: must have
+neednt: need not
+notve: not have
+oclock: o clock
+oughtnt: ought not
+shant: shall not
+shedve: she would have
+shes: she is
+shesnt: she is not
+shouldve: should have
+shouldnt: should not
+shouldntve: should not have
+somebodyd: somebody would
+somebodydve: somebody would have
+somebodydntve: somebody would not have
+somebodyll: somebody will
+somebodys: somebody is
+someoned: someone would
+someonedve: someone would have
+someonell: someone will
+someones: someone is
+somethingd: something would
+somethingdve: something would have
+somethingll: something will
+somethings: something is
+thatll: that will
+thats: that is
+thered: there would
+theredve: there would have
+therere: there are
+theres: there is
+theyd: they would
+theydnt: they would not
+theydntve: they would not have
+theydve: they would have
+theydvent: they would have not
+theyll: they will
+theyllntve: they will not have
+theyllvent: they will have not
+theyre: they are
+theyve: they have
+theyvent: they have not
+tis: it is
+twas: it was
+wanna: want to
+wasnt: was not
+wedve: we would have
+wedntve: we would not have
+wellntve: we will not have
+weve: we have
+werent: were not
+whatll: what will
+whatre: what are
+whats: what is
+whatve: what have
+whens: when is
+whered: where did
+wheres: where is
+whereve: where have
+whod: who would
+whodve: who would have
+wholl: who will
+whore: who are
+whos: who is
+whove: who have
+whyll: why will
+whyre: why are
+whys: why is
+wont: will not
+wontve: will not have
+wouldve: would have
+wouldnt: would not
+wouldntve: would not have
+yall: you all
+youd: you would
+youdve: you would have
+youll: you will
+youre: you are
+yourent: you are not
+youve: you have
+youvent: you have not

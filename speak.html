@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Our Chatbot</title>
+    <style>
+      a { color:#FFFFFF; }
+      p { color:#FFFFFF; }
+      h1 { color:#FFFFFF; }
+      h2 { color:#EEEEEE; }
+      h3 { color:#DDDDDD; }
+      h4 { color:#CCCCCC; }
+      h5 { color:#BBBBBB; }
+      h6 { color:#AAAAAA; }
+      table.sidebar {
+        border:2px solid black;
+        background-color:#000000;
+        width:150px;
+        height:500px;
+      }
+      td.sidebar {
+        text-align:center;
+        border:3px outset #9999FF;
+        background-color:#000000;
+        color:#FFFFFF;
+        height:auto;
+      }
+    </style>
+    <script src="/custom.js"></script>
+    <script src="/words_of_the_day.js"></script>
+    <script>
+      var numReferences = 0;
+      addLoadEvent(function() {
+        document.getElementById("word").innerHTML = wordOfTheDay;
+        document.getElementById("numReferences").innerHTML = todayReferences.toString();
+        function changeElement(times) {
+          if (times > 0) {
+            document.getElementById("percent").innerHTML = (100 * todayReferences / times).toFixed(1);
+            document.getElementById("allReferences").innerHTML = times.toString();
+          }
+        }
+        addAllWordOfTheDayReferences(wordOfTheDay, 0, changeElement);
+      });
+    </script>
+  </head>
+  <body bgcolor="#000000">
+    <div align="center">
+      <div align="center">
+        <!put an image here later>
+        <h1>Our Chatbot</h1>
+        <h3>Topic of the Day</h3>
+        <h2 id="word"></h2>
+        <p>Your references: <b id="numReferences">0</b> (<b id="percent">0</b>% of total)</p>
+        <p>Total references: <b id="allReferences">0</b></p>
+      </div>
+      <div align="left" style="width:800px;padding-left:5px;padding-right:5px">
+        <div style="float:left;background-color:#FFFFFF;padding-left:5px;padding-right:5px;width:150px;height:500px">
+          <table class='sidebar'>
+            <tr><td class='sidebar'><a href="/index.html">Home</a></td></tr>
+            <tr><td class='sidebar'><a href="/about.html">About</a></td></tr>
+            <tr><td class='sidebar'><a href="/speak.html">Let's Chat!</a></td></tr>
+          </table>
+        </div>
+        <div style="float:right;width:620px;height:500px;padding-left:5px;padding-right:5px;">
+
+
+<!BEGIN PAGE CONTENT>
+
+<script>
+var xmlhttp = null;
+var computerEsc = ".ESC.";
+var userEsc = ".USERESC.";
+
+var haveFile = false;
+var today = new Date(Date.now());
+var fileName = escape(today.getFullYear().toString() + "-" + 
+    (today.getMonth()+1).toStringWithDigits(2) + "-" + 
+    today.getDate().toStringWithDigits(2) + "_" + 
+    today.getHours().toStringWithDigits(2) + "-" + 
+    today.getMinutes().toStringWithDigits(2) + "-" +
+    today.getSeconds().toStringWithDigits(2) + "-" +
+    today.getMilliseconds().toStringWithDigits(3) + "_");
+
+var lastOutput = computerEsc;
+var reponse = null;
+var conv = null;
+
+addLoadEvent(function () { // This requires custom.js to be loaded
+  var userInputField = document.getElementById("response");
+  userInputField.onkeydown = function (event) {
+    event = event || window.event;
+    var key = event.keyCode || event.which;
+    if (key == 13) {
+      document.getElementById("send").click();
+    }
+  }
+
+  conv = document.getElementById("conversation");
+
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4) {
+      lastOutput = xmlhttp.responseText;
+      response = lastOutput;
+      var loadPara = document.getElementById("thinking");
+      conv.removeChild(loadPara);
+      var responsePara = document.createElement("p");
+      if (xmlhttp.status == 200) {
+        responsePara.appendChild(document.createTextNode("Our Chatbot: " + lastOutput));
+      } else {
+        responsePara.appendChild(document.createTextNode("Our Chatbot: There seems to be an error with our last communication with the server. We are sorry for the inconvenience."));
+        lastOutput = computerEsc;
+      }
+      conv.appendChild(responsePara);
+    }
+  }
+  xmlhttp.open("GET", "getResponse.cgi?input=" + escape("Hello") + "&lastOutput=" + escape(lastOutput), true);
+  xmlhttp.send();
+});
+
+function getResponse(lazyUser) {
+  var userInputField = document.getElementById("response");
+  var input = userInputField.value;
+
+  while (conv.children.length >= 6) {
+    conv.removeChild(conv.firstElementChild);
+  }
+
+  if (!lazyUser) {
+    numReferences = wordOfTheDayReferencesIn(input);
+    if (numReferences > 0) {
+      addReferencesFor(wordOfTheDay, numReferences);
+      document.getElementById("numReferences").innerHTML = todayReferences.toString();
+    }
+    
+    var userTextPara = document.createElement("p");
+    userTextPara.appendChild(document.createTextNode("User: " + input));
+    conv.appendChild(userTextPara);
+  } else {
+    input = lastOutput;
+    lastOutput = computerEsc;
+  }
+
+  var loadPara = document.createElement("p");
+  loadPara.appendChild(document.createTextNode("Our Chatbot: Thinking..."));
+  conv.appendChild(loadPara);
+
+  if (!haveFile) {
+    fileName += input.replace(/[^a-zA-Z0-9_]/g, "") + ".txt";
+    var convLink = document.getElementById("convLink");
+    convLink.innerHTML = 'View the full conversation <a target="_blank" href="/conv/' + fileName + '">here</a>.';
+    haveFile = true;
+  }
+
+  userInputField.value = "";
+
+  xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4) {
+      lastOutput = xmlhttp.responseText;
+      reponse = lastOutput;
+      var responsePara = document.createElement("p");
+      if (xmlhttp.status == 200) {
+        responsePara.appendChild(document.createTextNode("Our Chatbot: " + lastOutput));
+      } else {
+        responsePara.appendChild(document.createTextNode("Our Chatbot: There seems to be an error with our last communication with the server. We are sorry for the inconvenience."));
+        lastOutput = computerEsc;
+      }
+      conv.removeChild(loadPara);
+      conv.appendChild(responsePara);
+    }
+  }
+  xmlhttp.open("GET", "getResponse.cgi?input=" + escape(input) + "&lastOutput=" + escape(lastOutput) + "&file=" + escape(fileName), true);
+  xmlhttp.send();
+
+}
+</script>
+<h2>Conversation</h2>
+<div id="conversation">
+  <p id="thinking">Our Chatbot: Thinking...</p>
+</div>
+<input type="text" name="response" id="response">
+<button type="button" onclick="getResponse(false);" id="send">Send</button>
+<button type="button" onclick="getResponse(true);" id="lazyUser">Think About It!</button>
+<p id="convLink"></p>
+
+
+<!END PAGE CONTENT>
+
+
+        </div>
+        <div align='center' style='float:right;width:795px;border:3px outset #FF9900;background-color:#000000'>
+          <br><p>
+            For questions, comments, or suggestions, contact me at <a href='mailto:charlesw@owenblock.com'>charlesw@owenblock.com</a>.
+          </p><br>
+        </div><br><br>
+      </div>
+    </div>
+  </body>
+</html>

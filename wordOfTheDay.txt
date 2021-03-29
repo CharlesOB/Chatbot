@@ -1,0 +1,18 @@
+---
+Antigravity: 21
+None: 0
+Dinner: 134
+dinner: 7
+Grandma and Grandpa: 0
+Morgan Freeman: 41
+The Pharmacy: 20
+Leonardo DiCaprio: 18
+Frozen: 16
+Family: 24
+Old War Stories: 21
+Karma: 22
+Noodles: 19
+Pokemon Go!: 9
+The Jungle: 151
+John Cena: 15
+Childhood: 5
