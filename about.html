@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Our Chatbot - About</title>
+    <title>Chatbot - About</title>
     <style>
       a { color:#FFFFFF; }
       p { color:#FFFFFF; }
@@ -26,32 +26,9 @@
       }
     </style>
     <script src="/custom.js"></script>
-    <script src="/words_of_the_day.js"></script>
-    <script>
-      var numReferences = 0;
-      addLoadEvent(function() {
-        document.getElementById("word").innerHTML = wordOfTheDay;
-        document.getElementById("numReferences").innerHTML = todayReferences.toString();
-        function changeElement(times) {
-          if (times > 0) {
-            document.getElementById("percent").innerHTML = (100 * todayReferences / times).toFixed(1);
-            document.getElementById("allReferences").innerHTML = times.toString();
-          }
-        }
-        addAllWordOfTheDayReferences(wordOfTheDay, 0, changeElement);
-      });
-    </script>
   </head>
   <body bgcolor="#000000">
     <div align="center">
-      <div align="center">
-        <!put an image here later>
-        <h1>Our Chatbot</h1>
-        <h3>Topic of the Day</h3>
-        <h2 id="word"></h2>
-        <p>Your references: <b id="numReferences">0</b> (<b id="percent">0</b>% of total)</p>
-        <p>Total references: <b id="allReferences">0</b></p>
-      </div>
       <div align="left" style="width:800px;padding-left:5px;padding-right:5px">
         <div style="float:left;background-color:#FFFFFF;padding-left:5px;padding-right:5px;width:150px;height:500px">
           <table class='sidebar'>
@@ -65,12 +42,9 @@
 
 
 
-<h2>About Our Chatbot</h2>
-<p>Our Chatbot has been around for awhile. Originally created in 2011, Our Chatbot has had a long time to learn many tricks. With every conversation, Our Chatbot learns something new. We hope it will grow with each month.</p>
-<p>Our Chatbot is simple. It learns with everything said to it. When it speaks with a person, it remembers everything that person says. In conversation, Our Chatbot assumes everything the user says makes contextual sense. Therefore, if the user does not make sense with respect to what the chatbot says, Our Chatbot will not make any sense in the future. Spamming is not appreciated. <strong>For example, if Our Chatbot asks "How are you?" the user should respond accordingly. Whatever the user says in response will be recorded and used later as an output from Our Chatbot. If the user responds in our example with "I feel like I got ran over by Morgan Freeman's car," the next time someone asks Our Chatbot "How are you?" it may respond with "I feel like I got ran over by Morgan Freeman's car."</strong> If the user responds with something that makes no sense, Our Chatbot may still use it, and future users may think Our Chatbot is broken. Let's not break Our Chatbot. In this way, we teach Our Chatbot to speak. Please keep this in mind as you chat with Our Chatbot. We can make Our Chatbot better or worse; let's make it better! </p>
-<p>Would you like to view the database? <a href="/data.txt" target="_blank">Click Here!</a></p>
-<p>Let us know what you think by emailing me at <a href='mailto:charlesw@owenblock.com'>charlesw@owenblock.com</a> or visiting us at our <a about="_blank" href="http://www.facebook.com/ourchatbot">Facebook page</a>!</p>
-
+<h2>About Chatbot</h2>
+<p>Chatbot has been around for awhile. Originally created in 2011, Chatbot has had a long time to learn many tricks. With every conversation, Chatbot learns something new. We hope it will grow with each month.</p>
+<p>Chatbot is simple. It learns with everything said to it. When it speaks with a user, it remembers everything he or she says. In conversation, Chatbot assumes everything the user says makes contextual sense. If the user says something nonsensical, Chatbot will not be able to learn properly. For example, if Chatbot asks "How are you?" the user's response will be recorded and used later as output. If the user responds in our example with "I feel like I got ran over by Morgan Freeman's car," the next time someone asks Chatbot "How are you?" it may respond with "I feel like I got ran over by Morgan Freeman's car." If the user responds with something that makes no sense, Chatbot may still use it, and future users may think Chatbot is broken. Let's not break Chatbot. In this way, we teach Chatbot to speak. Please keep this in mind as you chat with it. </p>
 
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Our Chatbot - Error 404: Page not found</title>
+    <title>Chatbot - Error 404: Page not found</title>
     <style>
       a { color:#FFFFFF; }
       p { color:#FFFFFF; }
@@ -26,32 +26,9 @@
       }
     </style>
     <script src="/custom.js"></script>
-    <script src="/words_of_the_day.js"></script>
-    <script>
-      var numReferences = 0;
-      addLoadEvent(function() {
-        document.getElementById("word").innerHTML = wordOfTheDay;
-        document.getElementById("numReferences").innerHTML = todayReferences.toString();
-        function changeElement(times) {
-          if (times > 0) {
-            document.getElementById("percent").innerHTML = (100 * todayReferences / times).toFixed(1);
-            document.getElementById("allReferences").innerHTML = times.toString();
-          }
-        }
-        addAllWordOfTheDayReferences(wordOfTheDay, 0, changeElement);
-      });
-    </script>
   </head>
   <body bgcolor="#000000">
     <div align="center">
-      <div align="center">
-        <!put an image here later>
-        <h1>Our Chatbot</h1>
-        <h3>Topic of the Day</h3>
-        <h2 id="word"></h2>
-        <p>Your references: <b id="numReferences">0</b> (<b id="percent">0</b>% of total)</p>
-        <p>Total references: <b id="allReferences">0</b></p>
-      </div>
       <div align="left" style="width:800px;padding-left:5px;padding-right:5px">
         <div style="float:left;background-color:#FFFFFF;padding-left:5px;padding-right:5px;width:150px;height:500px">
           <table class='sidebar'>

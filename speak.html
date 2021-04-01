@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Our Chatbot</title>
+    <title>Chatbot</title>
     <style>
       a { color:#FFFFFF; }
       p { color:#FFFFFF; }
@@ -29,29 +29,10 @@
     <script src="/words_of_the_day.js"></script>
     <script>
       var numReferences = 0;
-      addLoadEvent(function() {
-        document.getElementById("word").innerHTML = wordOfTheDay;
-        document.getElementById("numReferences").innerHTML = todayReferences.toString();
-        function changeElement(times) {
-          if (times > 0) {
-            document.getElementById("percent").innerHTML = (100 * todayReferences / times).toFixed(1);
-            document.getElementById("allReferences").innerHTML = times.toString();
-          }
-        }
-        addAllWordOfTheDayReferences(wordOfTheDay, 0, changeElement);
-      });
     </script>
   </head>
   <body bgcolor="#000000">
     <div align="center">
-      <div align="center">
-        <!put an image here later>
-        <h1>Our Chatbot</h1>
-        <h3>Topic of the Day</h3>
-        <h2 id="word"></h2>
-        <p>Your references: <b id="numReferences">0</b> (<b id="percent">0</b>% of total)</p>
-        <p>Total references: <b id="allReferences">0</b></p>
-      </div>
       <div align="left" style="width:800px;padding-left:5px;padding-right:5px">
         <div style="float:left;background-color:#FFFFFF;padding-left:5px;padding-right:5px;width:150px;height:500px">
           <table class='sidebar'>
@@ -105,9 +86,9 @@ addLoadEvent(function () { // This requires custom.js to be loaded
       conv.removeChild(loadPara);
       var responsePara = document.createElement("p");
       if (xmlhttp.status == 200) {
-        responsePara.appendChild(document.createTextNode("Our Chatbot: " + lastOutput));
+        responsePara.appendChild(document.createTextNode("Chatbot: " + lastOutput));
       } else {
-        responsePara.appendChild(document.createTextNode("Our Chatbot: There seems to be an error with our last communication with the server. We are sorry for the inconvenience."));
+        responsePara.appendChild(document.createTextNode("Chatbot: There seems to be an error with our last communication with the server. We are sorry for the inconvenience."));
         lastOutput = computerEsc;
       }
       conv.appendChild(responsePara);
@@ -141,7 +122,7 @@ function getResponse(lazyUser) {
   }
 
   var loadPara = document.createElement("p");
-  loadPara.appendChild(document.createTextNode("Our Chatbot: Thinking..."));
+  loadPara.appendChild(document.createTextNode("Chatbot: Thinking..."));
   conv.appendChild(loadPara);
 
   if (!haveFile) {
@@ -160,9 +141,9 @@ function getResponse(lazyUser) {
       reponse = lastOutput;
       var responsePara = document.createElement("p");
       if (xmlhttp.status == 200) {
-        responsePara.appendChild(document.createTextNode("Our Chatbot: " + lastOutput));
+        responsePara.appendChild(document.createTextNode("Chatbot: " + lastOutput));
       } else {
-        responsePara.appendChild(document.createTextNode("Our Chatbot: There seems to be an error with our last communication with the server. We are sorry for the inconvenience."));
+        responsePara.appendChild(document.createTextNode("Chatbot: There seems to be an error with our last communication with the server. We are sorry for the inconvenience."));
         lastOutput = computerEsc;
       }
       conv.removeChild(loadPara);
@@ -176,7 +157,7 @@ function getResponse(lazyUser) {
 </script>
 <h2>Conversation</h2>
 <div id="conversation">
-  <p id="thinking">Our Chatbot: Thinking...</p>
+  <p id="thinking">Chatbot: Thinking...</p>
 </div>
 <input type="text" name="response" id="response">
 <button type="button" onclick="getResponse(false);" id="send">Send</button>
